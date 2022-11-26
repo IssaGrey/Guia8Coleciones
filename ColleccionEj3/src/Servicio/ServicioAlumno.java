@@ -11,19 +11,20 @@ public class ServicioAlumno {
     Scanner leer = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
     ArrayList<Alumno> alumnosT = new ArrayList<>();
 
-    public ArrayList<Alumno> crearListaAlumnos() {
+    public void crearListaAlumnos() {
         String opcion = "s";
 
         do {
             Alumno x = crearAlumno();
             alumnosT.add(x);
+           // alumnosT.add(crearAlumno());
             do {
                 System.out.print("Desea ingresar otro alumno? marca s para Si, n para NO  (s/n): ");
                 opcion = leer.next();
                 System.out.println("");
             } while (!(opcion.equalsIgnoreCase("s") || opcion.equalsIgnoreCase("n")));
         } while (opcion.equalsIgnoreCase("s"));
-        return alumnosT;
+       // return alumnosT;
     }
 
     public Alumno crearAlumno() {
@@ -49,13 +50,13 @@ public class ServicioAlumno {
         return newAlumno;
     }
 
-    public void MostrarDatos(ArrayList<Alumno> alumnoT) {
+    public void MostrarDatos() {
         System.out.println("los datos ingresados son: ");
 //MOSTRAR CON FOREACH
-        for (Alumno aux : alumnoT) {
+        for (Alumno aux : alumnosT) {
             System.out.println(aux.toString());
         }
-        System.out.println("cantidad = " + alumnoT.size());
+        System.out.println("cantidad = " + alumnosT.size());
 //MOSTRAR CON FOR
      /*   for ( int i = 0; i < alumnosT.size() ;i++){
 
@@ -74,21 +75,18 @@ promedio final, devuelto por el método y mostrado en el main*/
         System.out.println("Ingresa el alumno que quiere calcular su nota final");
         String paxCalcuNota = leer.next();
 
-        while (it.hasNext()) {
-            if (it.next().getNombreAlum().equalsIgnoreCase(paxCalcuNota)) {
-                for (Integer aux : it.next().getNotas()) {
-                    notafinal = notafinal + aux;
-                    System.out.println(notafinal);
-                }
-            } else
-                System.out.println("no esta ");
-        }
-        System.out.println(notafinal);
-        System.out.println("El promedio de la nota del alumno es:" + notafinal / 3);
+     while (it.hasNext()) {
+      if (it.next().getNombreAlum().equalsIgnoreCase(paxCalcuNota)) {
+          for (Integer aux : it.next().getNotas()) {
+            notafinal = notafinal + aux;
+            System.out.println(notafinal);
+          }
+      } else
+         System.out.println("no esta ");
+      }
+     System.out.println(notafinal);
+     System.out.println("El promedio de la nota del alumno es:" + notafinal / 3);
 
-     /* if (alumnosT.contains(paxCalcuNota)){
-          System.out.println("si esta");
-               }else System.out.println("no esta ");*/
     }
 }
 

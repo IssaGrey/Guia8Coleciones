@@ -20,8 +20,8 @@ public class Main {
 
         ServicioAlumno pax = new ServicioAlumno();
 
-        ArrayList<Alumno> alum = pax.crearListaAlumnos();
-        pax.MostrarDatos(alum);
+        pax.crearListaAlumnos();
+        pax.MostrarDatos();
         pax.notaFinal();
 
         /*ArrayList<Jugador> jugadores = servicioJugador.crearListaJugadores();
